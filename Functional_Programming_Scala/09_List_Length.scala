@@ -2,14 +2,23 @@
 
 def f(arr: List[Int]): Int = {
 
-def iter(l: List[Int], n: Int): Int = {
+  def iter(l: List[Int], n: Int): Int = {
 
-arr match {
-case Nil => n
-case x :: y => iter(l.tail, n + 1) 
-case x :: Nil => n + 1
+    arr match {
+      case Nil => n
+      case x :: y => iter(l.tail, n + 1) 
+      case x :: Nil => n + 1
+    }
+
+    iter(arr, 0)
+ }
 }
 
-iter(arr, 0)
-}
+
+/* Or just */
+
+def f(arr: List[Int]): Int = {
+    
+    arr.foldLeft(0)((x, y) => x + 1)
+    
 }
